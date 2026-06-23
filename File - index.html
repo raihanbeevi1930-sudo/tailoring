@@ -1,0 +1,123 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Portal</title>
+    <style>
+        /* Flashy styling built-in so it works offline on your phone */
+        body {
+            background: linear-gradient(135deg, #0f172a, #3b0764, #0f172a);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: sans-serif;
+            margin: 0;
+            overflow: hidden;
+        }
+        .login-card {
+            background: rgba(15, 23, 42, 0.85);
+            border: 1px solid rgba(168, 85, 247, 0.4);
+            padding: 40px 30px;
+            border-radius: 20px;
+            box-shadow: 0 0 25px rgba(236, 72, 153, 0.4);
+            width: 90%;
+            max-width: 380px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+        }
+        h1 {
+            font-size: 28px;
+            font-weight: 800;
+            background: linear-gradient(to right, #f472b6, #c084fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin: 0 0 10px 0;
+            letter-spacing: 1px;
+        }
+        p {
+            color: #94a3b8;
+            font-size: 14px;
+            margin: 0 0 30px 0;
+        }
+        input {
+            width: 85%;
+            background: rgba(30, 41, 59, 0.9);
+            border: 2px solid rgba(168, 85, 247, 0.6);
+            border-radius: 12px;
+            padding: 15px;
+            text-align: center;
+            font-size: 22px;
+            color: #f472b6;
+            letter-spacing: 6px;
+            outline: none;
+            transition: 0.3s;
+            margin-bottom: 20px;
+        }
+        input:focus {
+            border-color: #f472b6;
+            box-shadow: 0 0 10px rgba(236, 72, 153, 0.5);
+        }
+        button {
+            width: 95%;
+            background: linear-gradient(to right, #ec4899, #a855f7);
+            color: white;
+            border: none;
+            font-weight: bold;
+            font-size: 16px;
+            padding: 15px;
+            border-radius: 12px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(236, 72, 153, 0.3);
+            transition: 0.2s;
+        }
+        button:active {
+            transform: scale(0.98);
+        }
+        .error-message {
+            color: #f87171;
+            font-size: 14px;
+            margin-bottom: 15px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="login-card">
+        <!-- 1. CHANGE YOUR MAIN HEADING NAME HERE -->
+        <h1>RAIHAN TAILORING</h1>
+        
+        <p>Enter your access code</p>
+
+        <form onsubmit="handleLogin(event)">
+            <input type="password" id="accessCode" required placeholder="••••••">
+            <div id="errorMessage" class="error-message">❌ Invalid code. Try again!</div>
+            <button type="submit">ENTER COURSE →</button>
+        </form>
+    </div>
+
+    <script>
+        function handleLogin(event) {
+            event.preventDefault();
+            const codeInput = document.getElementById('accessCode').value;
+            const errorMsg = document.getElementById('errorMessage');
+
+            // 2. CHANGE YOUR PASSWORD CODE HERE
+            const secretCode = "SEW000"; 
+
+            // 3. CHANGE YOUR COURSE WEBSITE LINK HERE
+            const coursePageUrl = "https://google.com"; 
+
+            if (codeInput === secretCode) {
+                errorMsg.style.display = 'none';
+                window.location.href = coursePageUrl;
+            } else {
+                errorMsg.style.display = 'block';
+            }
+        }
+    </script>
+</body>
+</html>
